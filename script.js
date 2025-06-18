@@ -1,5 +1,5 @@
 function convertToRoman(num) {
-  if (num <= 0) return "N/A"; // Romans had no symbol for zero or negatives
+  if (num <= 0) return "N/A";
   if (num > 100000) return "Limit Exceeded";
 
   const romanMap = [
@@ -18,8 +18,7 @@ function convertToRoman(num) {
     ['I', 1]
   ];
 
-  let result = "";
-
+  let result = '';
   for (let [roman, value] of romanMap) {
     while (num >= value) {
       result += roman;
@@ -30,16 +29,4 @@ function convertToRoman(num) {
   return result;
 }
 
-function handleConvert() {
-  const input = document.getElementById("numberInput").value;
-  const output = document.getElementById("output");
-  const number = parseInt(input, 10);
-
-  if (isNaN(number)) {
-    output.textContent = "Please enter a valid number.";
-    return;
-  }
-
-  const romanNumeral = convertToRoman(number);
-  output.textContent = `Roman Numeral: ${romanNumeral}`;
-}
+module.exports = convertToRoman; // ✅ This is required for import to work in index.js
