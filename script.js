@@ -17,7 +17,19 @@ function convertToRoman(num) {
 // console.log(convertToRoman(36));
 
 
+  let result = "";
 
+  for (let [roman, value] of romanMap) {
+    while (num >= value) {
+      result += roman;
+      num -= value;
+    }
+  }
 
+  return result;
+}
+console.log(convertToRoman(14));   // XIV
+console.log(convertToRoman(798));  // DCCXCVIII
+console.log(convertToRoman(36));
 // do not edit below this line
 module.exports = convertToRoman
